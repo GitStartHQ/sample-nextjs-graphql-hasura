@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width initial-scale=1 user-scalable=no"
+    />
+    <title>Slides</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lobster+Two:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://unpkg.com/normalize.css@7/normalize.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/prop-types@15/prop-types.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://unpkg.com/spectacle@^5/dist/spectacle.js"></script>
+    <script src="https://unpkg.com/spectacle@^5/lib/one-page.js"></script>
+    <script type="text/spectacle">
+      () => {
+        // Your JS Code goes here
+        return (
+          <Deck margin="30px">
+              <Slide bgColor="primary">
+                <Heading size={3} lineHeight={1} textColor="secondary">
+                  Rapid Backend Development with NextJS + GraphQL + Hasura
+                </Heading>
+                <Text textColor="tertiary" size={5} bold margin="70px 0 0">
+                  By: Hamza Zia (GitStart)
+                </Text>
+              </Slide>
+              <Slide>
+                <Heading size={3} textColor="secondary">
+                  Benifits of this approach
+                </Heading>
+                <List margin="50px 100px 0">
+                  <ListItem>Relational Database (Postgres)</ListItem>
+                  <ListItem>GraphQL: Fully Typed</ListItem>
+                  <ListItem>Scales with Growth</ListItem>
+                  <ListItem>Fully customizable frontend (NextJS)</ListItem>
+                </List>
+              </Slide>
+              <Slide>
+                <Heading size={3} textColor="secondary">
+                  Step 1: Install NextJS + Hasura CLI
+                </Heading>
+                <CodePane
+                  fit
+                  padding="100px"
+                  lang="bash"
+                  textSize={20}
+                  source={`
+npm init
+npm install --save-dev hasura-cli next react react-dom
+                  `}
+                />
+              </Slide>
+              <Slide>
+                <Heading size={3} textColor="secondary">
+                  Step 2: Add Hasura Docker File
+                </Heading>
+                <CodePane
+                  fit
+                  padding="100px"
+                  lang="bash"
+                  textSize={15}
+                  source={`
+FROM hasura/graphql-engine:v1.0.0
+ENV HASURA_GRAPHQL_ENABLE_CONSOLE=true
+CMD graphql-engine --database-url $DATABASE_URL serve --server-port $PORT
+                  `}
+                />
+              </Slide>
+          </Deck>
+        );
+      }
+    </script>
+  </body>
+</html>
